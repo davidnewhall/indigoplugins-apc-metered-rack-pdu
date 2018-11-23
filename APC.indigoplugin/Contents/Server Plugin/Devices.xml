@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Devices>
+	<Device type="custom" id="APCmeteredRackPDU">
+		<Name>APC Metered Rack PDU</Name>
+		<ConfigUI>
+			<Field id="address" type="textfield" defaultValue="192.168.0.123">
+				<Label>PDU Network Address:</Label>
+				<Description>May be an IP address or a hostname.</Description>
+			</Field>
+			<Field id="username" type="textfield" defaultValue="apc">
+				<Label>APC PDU (ssh) Username:</Label>
+			</Field>
+			<Field id="password" type="textfield" defaultValue="apc">
+				<Label>APC PDU (ssh) Password:</Label>
+			</Field>
+      <Field type="menu" id="refreshfreq" defaultValue="60">
+        <Label>Update Interval:</Label>
+				<Description>How often to SSH to the server and poll fresh data.</Description>
+        <List>
+					<Option value="15">15 seconds</Option>
+					<Option value="30">30 seconds</Option>
+          <Option value="60">1 minute</Option>
+          <Option value="90">1.5 minutes</Option>
+          <Option value="120">2 miutes</Option>
+          <Option value="180">3 minutes</Option>
+          <Option value="300">5 minutes</Option>
+          <Option value="600">10 minutes</Option>
+        </List>
+      </Field>
+			<Field type="menu" id="refreshTimeout" defaultValue="5">
+				<Label>SSH and HTTP Timeout:</Label>
+				<List>
+					<Option value="1">1 second</Option>
+					<Option value="3">3 seconds</Option>
+					<Option value="4">4 seconds</Option>
+					<Option value="5">5 seconds</Option>
+					<Option value="10">10 seconds</Option>
+					<Option value="15">15 seconds</Option>
+					<Option value="30">30 seconds</Option>
+				</List>
+			</Field>
+      <Field type="menu" id="TempScale" defaultValue="F">
+        <Label>Temperature Scale:</Label>
+        <List>
+          <Option value="F">Fahrenheit</Option>
+          <Option value="C">Celsius</Option>
+        </List>
+      </Field>
+      <Field type="menu" id="NumTemperatureInputs" defaultValue="1">
+        <Label>Number of temperature sensors:</Label>
+        <List>
+          <Option value="0">None</Option>
+					<Option value="1">1</Option>
+        </List>
+      </Field>
+      <Field type="menu" id="NumHumidityInputs" defaultValue="1">
+        <Label>Number of humidity sensors:</Label>
+        <List>
+          <Option value="0">None</Option>
+          <Option value="1">1</Option>
+        </List>
+      </Field>
+			<Field id="logChanges" type="checkbox" defaultValue="true">
+				<Label>Record Device State Changes to Indigo Log</Label>
+			</Field>
+			<Field type="checkbox" id="SupportsEnergyMeter" defaultValue="true" hidden="true" />
+			<Field type="checkbox" id="SupportsEnergyMeterReset" defaultValue="true" hidden="true" />
+			<Field type="checkbox" id="SupportsEnergyMeterCurPower" defaultValue="true" hidden="true" />
+		</ConfigUI>
+	</Device>
+</Devices>
